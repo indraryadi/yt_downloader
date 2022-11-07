@@ -1,6 +1,7 @@
 from pathlib import Path
 from video import *
 from downloader import *
+from mp3 import *
 
 save_path=str(Path.home()/'Downloads')
 link = input("enter the link:")
@@ -16,7 +17,11 @@ if download_type=='1':
   except:
     print('failed download')
 elif download_type=='2':
-  pass
+  v_select=get_mp3(link)
+  try:
+    download(save_path,v_select,download_type)
+  except:
+    print('failed download')
 else:
   print("wrong choice")
 
