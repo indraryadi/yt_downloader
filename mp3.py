@@ -6,8 +6,9 @@ def get_mp3(url):
         yt=YouTube(url)
     except:
         print("connection error")
+    print(f"Title :{yt.title}")
 
-    audio=yt.streams.filter(only_audio=True)
+    audio=yt.streams.filter(only_audio=True,mime_type="audio/mp4")
     l_itag=[]
     num=1
     for i in audio:
@@ -17,5 +18,6 @@ def get_mp3(url):
 
     a_res=input("choose: ")
     a_select=yt.streams.get_by_itag(l_itag[int(a_res)-1])
-
-    return a_select
+    data={"stream":a_select,"title":yt.title}
+    # return a_select
+    return data
