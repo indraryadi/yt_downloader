@@ -1,7 +1,7 @@
 from pathlib import Path
-from video import *
-from downloader import *
-from mp3 import *
+from core.video import *
+from core.downloader import *
+from core.mp3 import *
 import time
 
 save_path=str(Path.home()/'Downloads')
