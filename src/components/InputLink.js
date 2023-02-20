@@ -3,7 +3,7 @@ import React from "react";
 const InputLink =()=>{
     return(
         <>
-            <input className="border border-black" type="text" placeholder="inser the url"/>
+            <input className="link-input" type="text" placeholder="insert the url"/>
         </>
     )
 }
