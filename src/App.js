@@ -7,17 +7,17 @@ function App() {
     <>
       <div className='screen'>
         <div className='container'>
-          <div className='input-container'>
-            <div className='user-input'>
-              <div className='input'>
-                <InputLink/>
+            <form className='input-form'>
+              <div className='user-input'>
+                <div className='input'>
+                  <InputLink/>
+                </div>
+                <div className='radio-button'>
+                  <RadioButton/>
+                </div>
               </div>
-              <div className='radio-button'>
-                <RadioButton/>
-              </div>
-            </div>
-            <ButtonProcess/>
-          </div>
+              <ButtonProcess/>
+            </form>
           <div className='video-title'></div>
           <div className='download'></div>
         </div>

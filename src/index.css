@@ -11,7 +11,7 @@
         @apply bg-slate-50 min-w-[359px] h-[500px] grid grid-rows-3 p-4 m-auto;
     }
 
-    .input-container{
+    .input-form{
         @apply bg-orange-100 row-span-1 grid grid-rows-2 ;
     }
     .user-input{
@@ -47,6 +47,6 @@
     }
 
     .process-button{
-        @apply mx-auto h-12 self-start bg-sky-700 rounded-md text-white font-bold w-20 shadow-sm;
+        @apply mx-auto my-auto h-12 self-start bg-sky-700 rounded-md text-white font-bold w-20 shadow-sm;
     }
 }
