@@ -7,7 +7,7 @@ function App() {
     <>
       <div className='screen'>
         <div className='container'>
-          <div className='user-input-container'>
+          <div className='input-container'>
             <div className='user-input'>
               <div className='input'>
                 <InputLink/>
