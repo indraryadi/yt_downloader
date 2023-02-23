@@ -11,7 +11,7 @@ const InputLink =(props)=>{
     return(
         <>
             {/* <input className="link-input" type="text" placeholder="insert the url" onChange={inputHandler}/> */}
-            <input className="link-input" type="text" placeholder="insert the url" ref={props.refer}/>
+            <input className="link-input" name={props.name} type="text" placeholder="insert the url" ref={props.refer}/>
         </>
     )
 }
