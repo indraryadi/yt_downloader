@@ -1,18 +1,18 @@
-import { useRef } from 'react';
+import {useState} from 'react'
 import './App.css';
 import ButtonProcess from './components/ButtonProcess';
 import InputLink from './components/InputLink';
 import RadioButton from './components/RadioButton';
 function App() {
-  const linkRef= useRef()
-  const optionRef= useRef('mp3')
 
+  const [link,setLink]= useState("")
+  const [videoType,setVideoType]=useState("mp3")
   console.log("re-render")
+  console.log(link)
 
   const handleSubmit=(e)=>{
     e.preventDefault()
-    const data = new FormData(e.target)
-    console.log(Object.fromEntries(data.entries()))
+    console.log(`${link} ${videoType}`)
   }
 
   return (
@@ -22,8 +22,8 @@ function App() {
           <div className='input-form'>
             <form onSubmit={handleSubmit}>
               <div className='user-input-container'>
-                <InputLink name="link" refer={linkRef}/>
-                <RadioButton name="video_type" refer={optionRef} />
+                <InputLink name="link" setLink={setLink}/> 
+                <RadioButton name="video_type" setVideoType={setVideoType} videoType={videoType}/>
               </div>
               <div className='button-container'>
                 <ButtonProcess/>
