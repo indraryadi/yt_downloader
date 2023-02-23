@@ -7,7 +7,7 @@ function App() {
     <>
       <div className='screen'>
         <div className='container'>
-            <form className='input-form'>
+            {/* <form className='input-form'>
               <div className='user-input'>
                 <div className='input'>
                   <InputLink/>
@@ -17,7 +17,18 @@ function App() {
                 </div>
               </div>
               <ButtonProcess/>
+            </form> */}
+          <div className='input-form'>
+            <form>
+              <div className='user-input-container'>
+                <InputLink/>
+                <RadioButton/>
+              </div>
+              <div className='button-container'>
+                <ButtonProcess/>
+              </div>
             </form>
+          </div>
           <div className='video-title'></div>
           <div className='download'></div>
         </div>

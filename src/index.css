@@ -11,12 +11,12 @@
         @apply bg-slate-50 min-w-[359px] h-[500px] grid grid-rows-3 p-4 m-auto;
     }
 
-    .input-form{
+    /* .input-form{
         @apply bg-orange-100 row-span-1 grid grid-rows-2 ;
     }
     .user-input{
         @apply bg-green-200 border-2 border-blue-500 flex flex-row;
-    }
+    } */
 
     .video-title{
         @apply bg-green-100 row-span-1;
@@ -25,12 +25,10 @@
     .download{
         @apply bg-rose-100 row-span-1;
     }
-    .input{
-        /* @apply border-2 border-red-500 flex-1 flex justify-center items-center px-5 md:max-w-[750px]; */
+    /* .input{
         @apply border-2 border-red-500 flex-1 flex justify-center items-center px-5 xl:justify-end;
     }
     .radio-button{
-        /* @apply w-16 border-2 border-pink-300 md:w-72;  */
         @apply w-16 border-2 border-pink-300 md:w-32 xl:w-72; 
     }
     .link-input{
@@ -44,9 +42,29 @@
         focus:ring-sky-500
         focus:ring-1 
         md:max-w-[750px] ;
+    } */
+
+    /* .process-button{
+        @apply mx-auto my-auto h-12 self-start bg-sky-700 rounded-md text-white font-bold w-20 shadow-sm;
+    } */
+
+    .input-form{
+        @apply bg-blue-100;
+    }
+    .user-input-container{
+        @apply h-20 border-2 border-black flex justify-center items-center;
+    }
+    .link-input{
+        @apply px-4 h-16 min-w-[290px] sm:flex-grow max-w-[700px];
+    }
+    .radio-button{
+        @apply ml-2 border-2 border-pink-100 flex-none flex flex-col;
+    }
+    .button-container{
+        @apply h-16 border-2 border-red-500 flex justify-center;
+    }
+    .process-button{
+        @apply h-10 px-3 bg-purple-400 rounded-md text-white text-center font-bold self-center;
     }
 
-    .process-button{
-        @apply mx-auto my-auto h-12 self-start bg-sky-700 rounded-md text-white font-bold w-20 shadow-sm;
-    }
 }
