@@ -6,13 +6,14 @@ import RadioButton from './components/RadioButton';
 function App() {
 
   const [link,setLink]= useState("")
-  const [videoType,setVideoType]=useState("mp3")
+  const [downloadType,setDownloadType]=useState("mp3")
   console.log("re-render")
   console.log(link)
 
   const handleSubmit=(e)=>{
     e.preventDefault()
-    console.log(`${link} ${videoType}`)
+    
+    console.log(`${link} ${downloadType}`)
   }
 
   return (
@@ -23,7 +24,7 @@ function App() {
             <form onSubmit={handleSubmit}>
               <div className='user-input-container'>
                 <InputLink name="link" setLink={setLink}/> 
-                <RadioButton name="video_type" setVideoType={setVideoType} videoType={videoType}/>
+                <RadioButton name="download_type" setVideoType={setDownloadType} downloadType={downloadType}/>
               </div>
               <div className='button-container'>
                 <ButtonProcess/>
