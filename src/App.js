@@ -46,7 +46,11 @@ function App() {
           <div className='input-form'>
             <form onSubmit={handleSubmit}>
               <div className='user-input-container'>
+<<<<<<< HEAD
                 <InputLink name="url" setLink={setLink}/> 
+=======
+                <InputLink name="link" setLink={setLink}/> 
+>>>>>>> ced5bb8a9d78a7c268c69fbceb82ffae6f60321c
                 <RadioButton name="download_type" setDownloadType={setDownloadType} downloadType={downloadType}/>
               </div>
               <div className='button-container'>
