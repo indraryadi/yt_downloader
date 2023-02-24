@@ -7,7 +7,7 @@ from pathlib import Path
 import io
 
 app=Flask(__name__)
-CORS(app)
+CORS(app, origins=["http://localhost:3000"])
 
 _save_path=str(Path.home()/'Downloads')
 
@@ -30,8 +30,12 @@ def getQuality():
         #for download neet to call function get stream again bc stream can convert to string and vice versa using io but the type need to be pytube.stream to download it but using io become _io.StringIO
 
 
-        # return {"quality":video_quality} 
-        return video_quality 
+        # return {"quality":video_quality}
+        response= jsonify(video_quality) 
+        # response.headers.add('Access-Control-Allow-Origin', '*')
+        # response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+        # response.headers.add('Access-Control-Allow-Methods', 'POST')
+        return response 
 
 @app.route("/api/downloadVideo",methods=["POST"])
 def downloadVideo():
