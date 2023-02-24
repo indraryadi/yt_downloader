@@ -24,7 +24,7 @@ function App() {
             <form onSubmit={handleSubmit}>
               <div className='user-input-container'>
                 <InputLink name="link" setLink={setLink}/> 
-                <RadioButton name="download_type" setVideoType={setDownloadType} downloadType={downloadType}/>
+                <RadioButton name="download_type" setDownloadType={setDownloadType} downloadType={downloadType}/>
               </div>
               <div className='button-container'>
                 <ButtonProcess/>
