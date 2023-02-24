@@ -4,11 +4,14 @@ import './App.css';
 import ButtonProcess from './components/ButtonProcess';
 import InputLink from './components/InputLink';
 import RadioButton from './components/RadioButton';
+import Dropdown from './components/Dropdown';
 function App() {
 
   const [link,setLink]= useState("")
   const [downloadType,setDownloadType]=useState("mp3")
   const [quality,setQuality]=useState({})
+  const [option,setOption]=useState("")
+  console.log(quality)
   // console.log("re-render")
   // console.log(link)
 
@@ -39,6 +42,26 @@ function App() {
     console.log(quality)
   }
 
+  const handleDownload=async (e)=>{
+    // need url and option
+    console.log(option)
+    console.log(link)
+    e.preventDefault()
+    const header={
+      "Content-Type":"multipart/form-data"
+    }
+    const data=new FormData()
+    data.append('url',link)
+    data.append('qualities',option)
+
+    try {
+      const response=await instanceApi.post('downloadVideo',data,{header}) 
+      console.log(response.data)
+    } catch (error) {
+      console.log(error) 
+    }
+  }
+
   return (
     <>
       <div className='screen'>
@@ -54,8 +77,13 @@ function App() {
               </div>
             </form>
           </div>
-          <div className='video-title'></div>
-          <div className='download'></div>
+          <div className='video-title'>
+            <Dropdown quality={quality} option={option} setOption={setOption}/>
+            {/* <Dropdown quality={quality}/> */}
+          </div>
+          <div className='download'>
+            <button className='bg-orange-300 text-white' onClick={handleDownload}>Download</button>
+          </div>
         </div>
       </div>
     </>
