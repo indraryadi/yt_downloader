@@ -4,67 +4,65 @@
 
 @layer components{
     .screen{
-    @apply bg-slate-200 grid h-screen ; 
+    /* @apply bg-slate-200 grid h-screen ;  */
+    @apply mt-9 p-2 h-[650px] flex flex-col items-center; 
     }
 
+    .app-title{
+        @apply text-black font-bold text-4xl text-center;
+    }
+    .app-desc{
+        @apply text-center italic font-medium
+    }
     .container{
-        @apply bg-slate-50 min-w-[359px] h-[500px] grid grid-rows-3 p-4 m-auto;
+        @apply bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md shadow-md min-w-[359px] h-[500px] grid grid-rows-3 p-4 m-auto md:max-w-[850px];
     }
-
+    /* INPUT CSS */
     /* .input-form{
-        @apply bg-orange-100 row-span-1 grid grid-rows-2 ;
-    }
-    .user-input{
-        @apply bg-green-200 border-2 border-blue-500 flex flex-row;
-    } */
-
-    .video-title{
-        @apply bg-green-100 row-span-1;
-    }
-    
-    .download{
-        @apply bg-rose-100 row-span-1;
-    }
-    /* .input{
-        @apply border-2 border-red-500 flex-1 flex justify-center items-center px-5 xl:justify-end;
-    }
-    .radio-button{
-        @apply w-16 border-2 border-pink-300 md:w-32 xl:w-72; 
-    }
-    .link-input{
-        @apply 
-        h-16
-        w-full 
-        placeholder:italic
-        placeholder:text-slate-400 bg-white border border-slate-300 rounded-md px-3 shadow-sm 
-        focus:outline-none
-        focus:border-sky-500
-        focus:ring-sky-500
-        focus:ring-1 
-        md:max-w-[750px] ;
-    } */
-
-    /* .process-button{
-        @apply mx-auto my-auto h-12 self-start bg-sky-700 rounded-md text-white font-bold w-20 shadow-sm;
-    } */
-
-    .input-form{
         @apply bg-blue-100;
-    }
+    } */
     .user-input-container{
-        @apply h-20 border-2 border-black flex justify-center items-center;
+        @apply h-20 flex justify-center items-center;
     }
     .link-input{
-        @apply px-4 h-16 min-w-[290px] sm:flex-grow max-w-[700px];
+        @apply px-4 h-16 rounded-lg shadow-md min-w-[290px] placeholder:text-lg sm:flex-grow max-w-[700px];
     }
     .radio-button{
-        @apply ml-2 border-2 border-pink-100 flex-none flex flex-col;
+        @apply ml-2 flex-none flex flex-col;
+    }
+    .radio-button-label{
+        @apply ml-2 text-white font-semibold;
     }
     .button-container{
-        @apply h-16 border-2 border-red-500 flex justify-center;
+        @apply h-16 flex justify-center;
     }
     .process-button{
-        @apply h-10 px-3 bg-purple-400 rounded-md text-white text-center font-bold self-center;
+        @apply h-10 px-3 bg-yellow-400 rounded-md text-black text-center font-bold self-center hover:bg-yellow-300;
+    }
+    /* END INPUT CSS  */
+
+    /* VIDEO CSS */
+    .video-container{
+        @apply row-span-1 flex flex-col justify-center items-center gap-y-5;
+    }
+    .title{
+        @apply text-2xl text-center font-bold ;
     }
 
+    .dropdown{
+       @apply font-semibold rounded-lg px-4 py-2 bg-white border;
+    }
+    /* END VIDEO CSS */
+
+    /* DOWNLOAD CSS */
+    .download-container{
+        @apply row-span-1 flex flex-col justify-center items-center gap-y-5;
+    }
+    .download-button{
+        @apply bg-gradient-to-r from-green-700 to-cyan-500 font-semibold text-white px-4 py-2 rounded-md shadow-md transition ease-in-out delay-200 duration-300 hover:-translate-y-1 hover:scale-110 ;
+    }
+    .download-finish{
+        @apply text-white text-2xl font-semibold;
+    }
+    /* END DOWNLOAD CSS */
 }

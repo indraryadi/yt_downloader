@@ -36,9 +36,9 @@ const Dropdown =(props)=>{
     // }
     return(
         <>
-            <h1>{title}</h1>
-            <select className={qualities===undefined?"hidden":""} value={option} onChange={handleOption} >
-                <option value="">Choose an Option</option>
+            <h1 className="title">{title}</h1>
+            <select className={qualities===undefined?"hidden":"dropdown"} value={option} onChange={handleOption} >
+                <option value="">Choose Quality</option>
                 {optionItem===[]?<option>--No Data--</option>:optionItem}
             </select>
             {/* <button className="bg-rose-200 text-black  font-bold" onClick={handleDownload}>Download</button> */}

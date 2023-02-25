@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import axios from 'axios';
-import './App.css';
 import ButtonProcess from './components/ButtonProcess';
 import InputLink from './components/InputLink';
 import RadioButton from './components/RadioButton';
@@ -22,8 +21,6 @@ function App() {
   const instanceApi=axios.create({
     "baseURL":baseUrl
   })
-
-
 
   const handleSubmit= async (e)=>{
     e.preventDefault()
@@ -74,6 +71,10 @@ function App() {
   return (
     <>
       <div className='screen'>
+        <div >
+          <h1 className='app-title'>YoDown</h1>
+          <h3 className='app-desc'>Youtube Downloader</h3>
+        </div>
         <div className='container'>
           <div className='input-form'>
             <form onSubmit={handleSubmit}>
@@ -86,14 +87,14 @@ function App() {
               </div>
             </form>
           </div>
-          <div className='video-title'>
+          <div className='video-container'>
             <Dropdown quality={quality} option={option} setOption={setOption}/>
-            {/* <Dropdown quality={quality}/> */}
           </div>
-          <div className='download'>
-            <button className='bg-orange-300 text-white' onClick={handleDownload}>Download</button>
+          <div className='download-container'>
+           {option===""?<p></p>:<button className='download-button' onClick={handleDownload}>Download</button>} 
+            
             {loading?<p>Loading</p>:<p></p>}
-            {done?<p>Done</p>:<p></p>}
+            {done?<p className='download-finish'>Done</p>:<p></p>}
           </div>
         </div>
       </div>
