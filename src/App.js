@@ -12,6 +12,7 @@ function App() {
   const [quality,setQuality]=useState({})
   const [option,setOption]=useState("")
   const [loading,setLoading]=useState(false)
+  const [done,setDone]=useState(false)
 
   console.log(quality)
   // console.log("re-render")
@@ -42,6 +43,7 @@ function App() {
     }    
     // console.log(`${link} ${downloadType}`)
     console.log(quality)
+    setDone(false)
   }
 
   const handleDownload=async (e)=>{
@@ -63,6 +65,7 @@ function App() {
       const response=await instanceApi.post('downloadVideo',data,{header}) 
       console.log(response.data)
       setLoading(false)
+      setDone(true)
     } catch (error) {
       console.log(error) 
     }
@@ -90,6 +93,7 @@ function App() {
           <div className='download'>
             <button className='bg-orange-300 text-white' onClick={handleDownload}>Download</button>
             {loading?<p>Loading</p>:<p></p>}
+            {done?<p>Done</p>:<p></p>}
           </div>
         </div>
       </div>
