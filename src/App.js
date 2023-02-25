@@ -11,6 +11,8 @@ function App() {
   const [downloadType,setDownloadType]=useState("mp3")
   const [quality,setQuality]=useState({})
   const [option,setOption]=useState("")
+  const [loading,setLoading]=useState(false)
+
   console.log(quality)
   // console.log("re-render")
   // console.log(link)
@@ -44,8 +46,10 @@ function App() {
 
   const handleDownload=async (e)=>{
     // need url and option
+    setLoading(true)
     console.log(option)
     console.log(link)
+    console.log(downloadType)
     e.preventDefault()
     const header={
       "Content-Type":"multipart/form-data"
@@ -53,10 +57,12 @@ function App() {
     const data=new FormData()
     data.append('url',link)
     data.append('qualities',option)
+    data.append('download_type',downloadType)
 
     try {
       const response=await instanceApi.post('downloadVideo',data,{header}) 
       console.log(response.data)
+      setLoading(false)
     } catch (error) {
       console.log(error) 
     }
@@ -83,6 +89,7 @@ function App() {
           </div>
           <div className='download'>
             <button className='bg-orange-300 text-white' onClick={handleDownload}>Download</button>
+            {loading?<p>Loading</p>:<p></p>}
           </div>
         </div>
       </div>
