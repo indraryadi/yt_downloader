@@ -1,39 +1,46 @@
-from flask import Flask, jsonify,request
-from flask_cors import CORS
+from fastapi import FastAPI 
+from pydantic import BaseModel
 from core.stream_processing import *
 from core.downloader import *
 from pathlib import Path
+import time
+import asyncio
 
-app=Flask(__name__)
-CORS(app, origins=["http://localhost:3000"])
+class QualityParam(BaseModel):
+    url: str
+    download_type: str
+
+class DownloadParam(BaseModel):
+    url: str
+    download_type: str
+    qualities: str
+
+app=FastAPI()
 
 _save_path=str(Path.home()/'Downloads')
 
-@app.route("/api/test",methods=["GET"])
+@app.get("/api/test")
 def test():
     data={"messsage":"hello"}
-    return jsonify(data)
+    return data
 
-@app.route("/api/getQuality",methods=["POST"])
-def getQuality():
-    url=request.form["url"]
-    download_type=request.form["download_type"]
+@app.post("/api/getQuality")
+def getQuality(req: QualityParam):
+    url=req.url
+    download_type=req.download_type
 
     raw_data=get_video_stream(url)
     video_quality=get_video_quality(raw_data,download_type)
-    response= jsonify(video_quality) 
-    # response.headers.add('Access-Control-Allow-Origin', '*')
-    # response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
-    # response.headers.add('Access-Control-Allow-Methods', 'POST')
+    response= video_quality 
     return response
 
-@app.route("/api/downloadVideo",methods=["POST"])
-def downloadVideo():
-    url=request.form["url"]
-    download_type=request.form["download_type"]
+@app.post("/api/downloadVideo")
+def downloadVideo(req:DownloadParam):
+    url=req.url
+    download_type=req.download_type
 
     raw_data=get_video_stream(url)
-    quality=request.form["qualities"]
+    quality=req.qualities
 
     link=get_video_link(raw_data["stream"],quality)
 
@@ -48,6 +55,16 @@ def downloadVideo():
         # print(e)
 
     return {"message":"ok"}
+
+@app.get("/test1")
+async def one():
+    # time.sleep(10)
+    await asyncio.sleep(10)
+    return {'one'}
+
+@app.get("/test2")
+def two():
+    return {'two'}
 
 if __name__=="__main__":
     app.run(debug=True)

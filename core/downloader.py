@@ -1,4 +1,4 @@
-from pytube import YouTube
+from pytubefix import YouTube
 from pathlib import Path
 
 def download(save_path,selected,download_type,title):

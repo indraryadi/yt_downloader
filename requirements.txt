@@ -1,4 +1,2 @@
-pytube
-progress
-flask
-flask-cors
+pytubefix
+fastapi[standard]

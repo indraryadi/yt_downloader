@@ -1,4 +1,4 @@
-from pytube import YouTube
+from pytubefix import YouTube
 
 def get_video_stream(url):
     try:
